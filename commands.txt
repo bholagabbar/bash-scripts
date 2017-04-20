@@ -1,0 +1,22 @@
+1. Remove unable to get lock error
+
+sudo rm /var/lib/apt/lists/lock
+sudo rm /var/cache/apt/archives/lock
+
+2. Own a directory
+
+sudo chown username:username /opt
+
+3. Resolve unable to mount 
+
+sudo ntfsfix /dev/sdaxx
+
+
+mvn jetty:run -Dorg.eclipse.jetty.annotations.maxWait=120
+git update-index --assume-unchanged
+
+4. Restart Cinnamon
+sudo service mdm restart
+
+5. Startup file that doesn't work
+gksudo gedit /etc/rc.local
