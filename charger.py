@@ -1,9 +1,9 @@
 import power
 import gi
 
+gi.require_version('Notify', '0.7')
 from gi.repository import Notify
 
-gi.require_version('Notify', '0.7')
 Notify.init("Charging Status")
 
 source = power.PowerManagement().get_providing_power_source_type()
