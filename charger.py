@@ -15,5 +15,5 @@ while(True):
         print('NOT CHARGING!')
     else:
         print('CHARGING')
-    time.sleep(120)
+    time.sleep(300)
 
