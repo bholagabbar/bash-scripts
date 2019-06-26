@@ -1,17 +1,19 @@
 import power
-import gi
+import time
+import notify2 
+from notify2 import Notification
 
-gi.require_version('Notify', '0.7')
-from gi.repository import Notify
+notify2.init("Charger Warning")
+n = Notification("WARNING", "Laptop running on battery. Plug in charger!")
+n.set_urgency(notify2.URGENCY_CRITICAL)
 
-Notify.init("Charging Status")
+while(True):
+    source = power.PowerManagement().get_providing_power_source_type()
 
-source = power.PowerManagement().get_providing_power_source_type()
-
-if source == power.POWER_TYPE_BATTERY:
-    print('NOT CHARGING!')
-    notification = Notify.Notification.new('WARNING - Laptop running on battery!')
-    notification.show()
-else:
-    print('CHARGING')
+    if source == power.POWER_TYPE_BATTERY:
+        n.show()
+        print('NOT CHARGING!')
+    else:
+        print('CHARGING')
+    time.sleep(120)
 
